@@ -3,6 +3,47 @@
 #include <algorithm>
 using namespace std;
 
+void primeFactor(int n){
+    int spf[100] = {0};
+    for (int i = 2; i < n; i++){
+        spf[i] = i;
+    }
+    
+    for (int i = 2; i <= count; i++){
+        if(spf[i] == i){
+            for (int j = i*i; j <= count; j++){
+                if(spf[j] == j){
+                    spf[j] = i;
+                }
+            }
+        }
+    }
+
+    while(n!=1){
+        cout<<spf[n]<<" ";
+        n/=spf[n];
+    }
+}
+
+
+void sieve(int n){
+    int prime[100] = {1};
+    for(int i = 2; i <= n; ++i){
+        if(prime(i)){
+            for(int j = i*i; j <= n; ++i){
+                prime[j] = 0;
+            }
+        }
+    }
+
+    for (int i = 2; i < n; i++){
+        if (prime(i)){
+            cout<<i<<" ";
+        }
+    }
+
+}
+
 
 int main(){
     int n, k;
