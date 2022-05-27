@@ -3,6 +3,8 @@
     "files.associations": {
         "bitset": "cpp",
         "chrono": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "string": "cpp",
+        "string_view": "cpp"
     }
 }
