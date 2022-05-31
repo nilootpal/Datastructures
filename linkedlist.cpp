@@ -46,6 +46,13 @@ void display(node* head){
 }
 
 void deletion(node* head, int key){
+    if(head == NULL){
+        return;
+    }
+    if(head->next == NULL){
+        deleteAtHead(head);
+        return;
+    }
     node* temp = head;
     while(temp->next->data != key){
         temp=temp->next;
@@ -63,14 +70,6 @@ void deleteAtHead(node* &head){
 }
 
 bool search(node* head, int key){
-    if(head == NULL){
-        return;
-    }
-    if(head->next == NULL){
-        deleteAtHead(head);
-        return;
-    }
-
     node* temp = head;
     while(temp != NULL){
         if(temp->data == key){
