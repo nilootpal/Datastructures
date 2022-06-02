@@ -79,46 +79,20 @@ void display(node* head){
     cout<<"NULL"<<endl;
 }
 
-int length(node* head){
-    int count = 0;
-    while(temp != NULL){
-        ++count;
-        temp = temp->next;
-    }
-    return count;
-}
-
-void appendLastK(node* &head, int k){
-    node* newHead;
-    node* newTail;
-    node* tail = head;
-
-    int l = length(head);
-    int count = 1;
-
-    while(tail->next != NULL){
-        
-    }
-}
 
 int main(){
-    node* head = NULL;
-    insertAtTail(head, 1);
-    insertAtTail(head, 2);
-    insertAtTail(head, 3);
-    insertAtTail(head, 4);
-    insertAtTail(head, 5);
-    insertAtTail(head, 6);
-    insertAtTail(head, 7);
-    insertAtTail(head, 8);
+    
 
-    display(head);
-    insertAthead(head, 0);
-    display(head);
-    deletion(head, 5);
-    display(head);
-    deleteAtHead(head);
-    display(head);
+    // display(head);
+    // insertAthead(head, 0);
+    // display(head);
+    // deletion(head, 5);
+    // display(head);
+    // deleteAtHead(head);
+    // display(head);
+    // node* newNode = appendLastK(head, 3);
+    // display(newNode);
+
 
     return 0;
 }
