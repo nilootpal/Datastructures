@@ -305,30 +305,57 @@ node* mergeRecursive( node* &head1, node* &head2 ){
     return result;
 }
 
+void evenAfterHead(node* &head){
+    node* odd = head;
+    node* even = head->next;
+    node* evenStart = head->next;
+
+    while((odd->next != NULL) && (even->next != NULL)){
+        odd->next = even->next;
+        odd = odd->next;
+
+        even->next = odd->next;
+        even = even->next;
+    }
+
+    odd->next = evenStart;
+    if(odd->next != NULL){
+        even->next = NULL;
+    }
+}
+
 
 int main(){
-    node* head1 = NULL;
-    node* head2 = NULL;
+    // node* head1 = NULL;
+    // node* head2 = NULL;
 
-    insertAtTail(head1, 1);
-    insertAtTail(head1, 3);
-    insertAtTail(head1, 5);
-    insertAtTail(head1, 7);
-    insertAtTail(head1, 9);
-    insertAtTail(head2, 2);
-    insertAtTail(head2, 4);
-    insertAtTail(head2, 6);
-    insertAtTail(head2, 8);
-    insertAtTail(head2, 10);
+    // insertAtTail(head1, 1);
+    // insertAtTail(head1, 3);
+    // insertAtTail(head1, 5);
+    // insertAtTail(head1, 7);
+    // insertAtTail(head1, 9);
+    // insertAtTail(head2, 2);
+    // insertAtTail(head2, 4);
+    // insertAtTail(head2, 6);
+    // insertAtTail(head2, 8);
+    // insertAtTail(head2, 10);
 
     // intersect(head1, head2, 3);
 
     // cout<<intersectionPt(head1, head2)<<endl;
 
-    display(head1);
-    display(head2);
-    node* newHead = mergeRecursive(head1, head2);
-    display(newHead);
+    node* head = NULL;
+    insertAtTail(head, 1);
+    insertAtTail(head, 2);
+    insertAtTail(head, 3);
+    insertAtTail(head, 4);
+    insertAtTail(head, 5);
+    insertAtTail(head, 6);
+
+    display(head);
+
+    evenAfterHead(head);
+    display(head);
 
     return 0;
 }
