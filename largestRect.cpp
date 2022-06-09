@@ -24,6 +24,7 @@ int get_max_area(vector<int> a){
         st.push(i);
         ++i;
     }
+    return ans;
 }
 
 int main(){
