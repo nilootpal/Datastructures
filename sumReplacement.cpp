@@ -102,7 +102,7 @@ void leftView(Node* root){
             }
 
             if(curr->left != NULL){
-                q.push(curr->left);
+                q.push(curr->left); 
             }
             if(curr->right != NULL){
                 q.push(curr->right);
@@ -112,40 +112,34 @@ void leftView(Node* root){
     }
 }
 
-// Node* LCA(Node* root, int n1, int n2){
-//     if(root == NULL){
-//         return NULL;
-//     }
-
-//     if((root->data == n1) || (root->data == n2)){
-//         return root;
-//     }
-    
-//     Node* left = LCA(root->left, n1, n2);
-//     Node* right = LCA(root->right, n1, n2);
-
-//     if( (left != NULL) && (right != NULL) ){
-//         return root;
-//     }
-
-//     if( (left == NULL) && (right == NULL) ){
-//         return NULL;
-//     }
-
-//     if(left != NULL){
-//         return LCA(root->left, n1, n2);
-//     }
-
-//     return LCA(root->right, n1, n2);
-// }
-
-int LCA(Node* root, int n1, int n2){
-    vector<int> path1, path2;
-
-    if(!getPath(root, n1, path1) || !getPath(root, n2, path2)){
-        return -1;
+Node* LCA(Node* root, int n1, int n2){
+    if(root == NULL){
+        return NULL;
     }
+
+    if((root->data == n1) || (root->data == n2)){
+        return root;
+    }
+    
+    Node* left = LCA(root->left, n1, n2);
+    Node* right = LCA(root->right, n1, n2);
+
+    if( (left != NULL) && (right != NULL) ){
+        return root;
+    }
+
+    if( (left == NULL) && (right == NULL) ){
+        return NULL;
+    }
+
+    if(left != NULL){
+        return LCA(root->left, n1, n2);
+    }
+
+    return LCA(root->right, n1, n2);
 }
+
+
 
 int findDist(Node* root, int k, int dist){
     if(root == NULL){
